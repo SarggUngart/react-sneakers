@@ -1,6 +1,65 @@
+import {Card} from "./components/Card";
+
 function App() {
   return (
     <div className='wrapper'>
+      
+      <div style={{display: 'none'}} className="drawerOverlay">
+        <div className="drawer">
+          <h2>Cart
+            <button className="cartBtn">
+              <img src="/img/remove.svg" alt="delete"/>
+            </button></h2>
+          
+          <div className="items">
+            <div className="cartItem">
+              <img className='cartItemImg' src="/img/sneakers/07.jpg" alt="item"/>
+              
+              <div className='cartItemInfo'>
+                <p>Nike Air Max 270</p>
+                <b>300$</b>
+              </div>
+              
+              <button className="cartBtn">
+                <img src="/img/remove.svg" alt="delete"/>
+              </button>
+            </div>
+            <div className="cartItem">
+              <img className='cartItemImg' src="/img/sneakers/08.jpg" alt="item"/>
+              
+              <div className='cartItemInfo'>
+                <p>Nike Air Max 270</p>
+                <b>300$</b>
+              </div>
+              
+              <button className="cartBtn">
+                <img src="/img/remove.svg" alt="delete"/>
+              </button>
+            </div>
+          </div>
+          
+          <div className='cartTotal'>
+            <ul className='cartList'>
+              <li className='cartListItem'>
+                <span>total</span>
+                <div></div>
+                <b>1300 $</b>
+              </li>
+              <li className='cartListItem'>
+                <span>tax</span>
+                <div></div>
+                <b>5%</b>
+              </li>
+            </ul>
+            <button className='GreenBtn'>
+              Place an order
+              <img className='GreenBtnIco' src="/img/arrow.svg" alt="arrow"/>
+            </button>
+          </div>
+        
+        
+        </div>
+      </div>
       
       <header className='header'>
         <div className='headerLeft'>
@@ -20,67 +79,24 @@ function App() {
         </ul>
       </header>
       <div className="content">
-        <h3>All models</h3>
-      </div>
-      <div className="sneakers">
-        
-        <div className="card">
-          <img width={133} height={112} src="/img/sneakers/01.jpg" alt="sneaker"/>
-          <h5>Nike Blazer Mid Suede</h5>
-          <div className="cardInfo">
-            <div className="cardPrice">
-              <p>price</p>
-              <b>400 $</b>
-            </div>
-            <button className="cardBtn">
-              <img width={11} height={11} src="/img/plus.svg" alt="plus"/>
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img width={133} height={112} src="/img/sneakers/04.jpg" alt="sneaker"/>
-          <h5>Nike Blazer Mid Suede</h5>
-          <div className="cardInfo">
-            <div className="cardPrice">
-              <p>price</p>
-              <b>400 $</b>
-            </div>
-            <button className="cardBtn">
-              <img width={11} height={11} src="/img/plus.svg" alt="plus"/>
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img width={133} height={112} src="/img/sneakers/02.jpg" alt="sneaker"/>
-          <h5>Nike Blazer Mid Suede</h5>
-          <div className="cardInfo">
-            <div className="cardPrice">
-              <p>price</p>
-              <b>400 $</b>
-            </div>
-            <button className="cardBtn">
-              <img width={11} height={11} src="/img/plus.svg" alt="plus"/>
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img width={133} height={112} src="/img/sneakers/03.jpg" alt="sneaker"/>
-          <h5>Nike Blazer Mid Suede</h5>
-          <div className="cardInfo">
-            <div className="cardPrice">
-              <p>price</p>
-              <b>400 $</b>
-            </div>
-            <button className="cardBtn">
-              <img width={11} height={11} src="/img/plus.svg" alt="plus"/>
-            </button>
+        <div className='contentHeader'>
+          <h3 className='contentTitle'>All models</h3>
+          <div className="searchWrapper">
+            <img className='searchIco' src="/img/search.svg" alt="search"/>
+            <input className='searchInput' type="text" placeholder={'search...'}/>
           </div>
         </div>
         
+        <div className="sneakers">
+          
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+        
+        </div>
       </div>
+    
     
     </div>
   );
