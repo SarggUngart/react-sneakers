@@ -6,17 +6,27 @@ import React from "react";
 
 function App() {
   const [items, setItems] = React.useState([])
+  const [cartItems, setCartItems] = React.useState([])
   const [cartOpened, setCartOpened] = React.useState(false)
   
-  const addToCart = () => {
-    console.log('cart')
+  const addToCart = (obj) => {
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].id === obj.id) {
+        return
+      }
+    }
+    setCartItems(prev => [...prev, obj])
+  }
+  
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter(s => s.id !== id))
   }
   
   const addToFavorite = () => {
     console.log('favorite')
   }
   
-  React.useEffect(()=>{
+  React.useEffect(() => {
     fetch('https://640d9391b07afc3b0db08963.mockapi.io/items').then(
       res => {
         return res.json()
@@ -30,6 +40,8 @@ function App() {
     <div className='wrapper'>
       {cartOpened && <CartDrawer
         onClickCart={() => setCartOpened(!cartOpened)}
+        removeFromCart={removeFromCart}
+        items={cartItems}
       />}
       
       <Header
@@ -54,7 +66,7 @@ function App() {
                   title={s.title}
                   price={s.price}
                   img={s.img}
-                  addToCart={addToCart}
+                  addToCart={() => addToCart(s)}
                   addToFavorite={addToFavorite}
                 />
               
