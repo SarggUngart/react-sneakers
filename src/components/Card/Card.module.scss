@@ -54,10 +54,12 @@
 .cardBtn {
   width: 32px;
   height: 32px;
+  padding: 0;
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
   background: #fff;
   border-radius: 8px;
+
 
   &:hover {
     cursor: pointer;

@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './Card.module.scss'
 
 export const Card = (props) => {
+  let [check, setCheck] = useState(false)
   
   const onClickBtnHandler = () => {
-    alert(props.title)
+    setCheck(!check)
   }
   
+  const onClickFavorite = () => {
+    props.addToFavorite()
+  }
+  
+  const isCheck = check ? "/img/check.svg" : "/img/plus.svg"
   
   return (
     <div className={style.card}>
-      <img className={style.favorite} src="/img/heart-grey.svg" alt="heart"/>
+      <img onClick={onClickFavorite} className={style.favorite} src="/img/heart-grey.svg" alt="heart"/>
       <img width={133} height={112} src={props.img} alt="sneaker"/>
       <h5>{props.title}</h5>
       <div className={style.cardInfo}>
@@ -19,7 +25,7 @@ export const Card = (props) => {
           <b>{props.price}$</b>
         </div>
         <button onClick={onClickBtnHandler} className={style.cardBtn}>
-          <img width={11} height={11} src="/img/plus.svg" alt="plus"/>
+          <img src={isCheck} alt="plus"/>
         </button>
       </div>
     </div>

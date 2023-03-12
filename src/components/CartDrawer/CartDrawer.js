@@ -1,12 +1,17 @@
 import React from 'react';
 import style from './CartDrawer.module.scss'
 
-export const CartDrawer = () => {
+export const CartDrawer = (props) => {
+  
+  const closeCart = () => {
+    props.onClickCart()
+  }
+  
   return (
-    <div style={{display: 'none'}} className={style.drawerOverlay}>
+    <div className={style.drawerOverlay}>
       <div className={style.drawer}>
         <h2>Cart
-          <button className={style.cartBtn}>
+          <button onClick={closeCart} className={style.cartBtn}>
             <img src="/img/remove.svg" alt="delete"/>
           </button></h2>
         <div className={style.items}>

@@ -1,7 +1,12 @@
 import React from 'react';
 import style from './Header.module.scss'
 
-export const Header = () => {
+export const Header = (props) => {
+  
+  const openCart = () => {
+    props.onClickCart()
+  }
+  
   return (
     <header className={style.header}>
       <div className={style.headerLeft}>
@@ -12,7 +17,7 @@ export const Header = () => {
         </div>
       </div>
       <ul className={style.headerRight}>
-        <li>
+        <li onClick={openCart}>
           <img src="/img/card.svg" alt="card"/>
           <span>1205 $</span></li>
         <li>
